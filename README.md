@@ -29,12 +29,7 @@ Lab6Web/
 ├── index.html                   # Dashboard aplikasi web interaktif utama
 ├── style.css                    # Styling CSS modern, responsif, dan kelas modul praktikum
 ├── script.js                    # Logika manipulasi DOM, event listener, dan validasi
-├── laporan.html                 # Dokumen HTML sumber cetak laporan resmi
 ├── Laporan_Praktikum6_312510463_Margent_Ouwen_Sitompul.pdf  # Dokumen laporan resmi berformat PDF
-├── lab6_dom_event/              # Direktori standalone modul latihan
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
 ├── screenshots/                 # Berkas tangkapan layar bukti pengujian praktikum
 │   ├── overview_dashboard.png
 │   ├── latihan1_2_teks_click.png
