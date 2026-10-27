@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Praktikum 6: DOM & Event Handling - Margent Ouwen Sitompul (312510463)</title>
+  <meta name="description" content="Modul Praktikum 6 Pemrograman Web: JavaScript DOM dan Event Handling oleh Margent Ouwen Sitompul (NIM: 312510463)">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- ===================================================================
+       HEADER SECTION
+       =================================================================== -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="header-meta">
+        <div class="course-badge">
+          <span>📘</span>
+          <span>Pemrograman Web • Praktikum 6 (Pertemuan 7)</span>
+        </div>
+        <div class="student-card">
+          <div class="student-avatar">M</div>
+          <div class="student-info">
+            <h4>Margent Ouwen Sitompul</h4>
+            <p>NIM: 312510463 • Teknik Informatika</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-title-wrapper">
+        <h1>JavaScript DOM & Event Handling</h1>
+        <p class="header-subtitle">
+          Implementasi pemilihan elemen, manipulasi DOM, event listener, validasi form pendaftaran, 
+          To-Do List interaktif, Mini Project Workshop, dan Eksperimen Mandiri.
+        </p>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <nav class="nav-tabs" role="tablist">
+        <button class="nav-tab-btn active" data-tab="tab-latihan" id="btn-tab-latihan" role="tab" aria-selected="true">
+          <span>⚡</span> Latihan 1–6 (Modul Dasar)
+        </button>
+        <button class="nav-tab-btn" data-tab="tab-miniproject" id="btn-tab-miniproject" role="tab" aria-selected="false">
+          <span>🎯</span> Mini Project (Workshop Form)
+        </button>
+        <button class="nav-tab-btn" data-tab="tab-eksperimen" id="btn-tab-eksperimen" role="tab" aria-selected="false">
+          <span>🧪</span> Eksperimen Mandiri
+        </button>
+        <button class="nav-tab-btn" data-tab="tab-evaluasi" id="btn-tab-evaluasi" role="tab" aria-selected="false">
+          <span>📖</span> Pertanyaan Evaluasi
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================================================================
+       MAIN CONTAINER
+       =================================================================== -->
+  <main class="main-content">
+
+    <!-- ===============================================================
+         TAB 1: LATIHAN 1 - 6
+         =============================================================== -->
+    <section id="tab-latihan" class="tab-pane active" role="tabpanel">
+      <div class="section-intro">
+        <h2><span>⚡</span> Latihan Dasar DOM dan Event Handling</h2>
+        <p>
+          Implementasi langsung seluruh kode latihan modul: manipulasi konten teks, event click, manipulasi class CSS, 
+          input listener & character counter, validasi formulir, dan to-do list dinamis.
+        </p>
+      </div>
+
+      <div class="grid-cards">
+        <!-- Latihan 1 & 2 -->
+        <article class="exercise-card" id="card-latihan1-2">
+          <div class="card-header-badge">
+            <span class="badge">Latihan 1 & 2</span>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Text & Click Event</span>
+          </div>
+          <h3 class="card-title">Manipulasi Teks & Event Click</h3>
+          <p class="card-desc">Mengubah <code>textContent</code> elemen secara langsung dan merespons klik tombol dengan waktu sistem realtime.</p>
+          
+          <div class="card-content">
+            <!-- Sesuai struktur kode modul hal 2 -->
+            <h4 id="judul" style="font-size: 1.2rem; color: var(--primary); margin-bottom: 0.5rem;">Latihan DOM</h4>
+            <p id="pesan" style="font-size: 0.95rem; margin-bottom: 1rem; color: var(--text-main);">Belum ada tindakan.</p>
+            <button id="tombolAksi" class="btn btn-primary" type="button">
+              <span>👉</span> Klik Saya
+            </button>
+          </div>
+
+          <div style="font-size: 0.8rem; color: var(--text-muted); background: #f8fafc; padding: 0.5rem; border-radius: 6px;">
+            💡 <strong>Status DOM:</strong> ID <code>#judul</code> diubah otomatis saat halaman termuat. Klik <code>#tombolAksi</code> untuk memperbarui <code>#pesan</code> dengan timestamp.
+          </div>
+        </article>
+
+        <!-- Latihan 3 -->
+        <article class="exercise-card" id="card-latihan3">
+          <div class="card-header-badge">
+            <span class="badge">Latihan 3</span>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">classList.toggle()</span>
+          </div>
+          <h3 class="card-title">Mengubah Kelas & Gaya CSS</h3>
+          <p class="card-desc">Menambah/menghapus class <code>.highlight</code> dan <code>.teks-besar</code> secara dinamis menggunakan JavaScript.</p>
+          
+          <div class="card-content">
+            <!-- Sesuai struktur kode modul hal 3 -->
+            <p id="teksGaya" style="transition: all 0.2s ease; margin-bottom: 1.25rem;">
+              Paragraf ini akan berganti gaya visual (warna latar biru muda, border kiri, ukuran font lebih besar) saat tombol ditekan.
+            </p>
+            <button id="tombolGaya" class="btn btn-secondary" type="button">
+              <span>🎨</span> Toggle Gaya Teks
+            </button>
+          </div>
+
+          <div style="font-size: 0.8rem; color: var(--text-muted); background: #f8fafc; padding: 0.5rem; border-radius: 6px;">
+            💡 Menggunakan <code>teksGaya.classList.toggle("highlight")</code> dan <code>toggle("teks-besar")</code>.
+          </div>
+        </article>
+
+        <!-- Latihan 4 -->
+        <article class="exercise-card" id="card-latihan4">
+          <div class="card-header-badge">
+            <span class="badge">Latihan 4</span>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Event Input</span>
+          </div>
+          <h3 class="card-title">Penghitung Karakter Real-time</h3>
+          <p class="card-desc">Mendeteksi setiap pengetikan pada elemen input menggunakan event <code>input</code> dan menghitung panjang karakter.</p>
+          
+          <div class="card-content">
+            <!-- Sesuai kode modul hal 3 -->
+            <div class="form-group">
+              <label for="namaInput">Nama (Maksimal 40 Karakter):</label>
+              <input type="text" id="namaInput" maxlength="40" placeholder="Ketik nama Anda di sini...">
+            </div>
+            <div class="char-meter-container">
+              <div class="char-meter-bar">
+                <div id="charMeterFill" class="char-meter-fill"></div>
+              </div>
+              <p style="font-weight: 600; font-size: 0.9rem;">
+                Jumlah karakter: <span id="jumlahKarakter" style="color: var(--primary);">0</span> / 40
+              </p>
+            </div>
+          </div>
+
+          <div style="font-size: 0.8rem; color: var(--text-muted); background: #f8fafc; padding: 0.5rem; border-radius: 6px;">
+            💡 Menghitung <code>namaInput.value.length</code> secara langsung saat mengetik, menghapus, atau paste teks.
+          </div>
+        </article>
+
+        <!-- Latihan 5 -->
+        <article class="exercise-card" id="card-latihan5" style="grid-column: 1 / -1;">
+          <div class="card-header-badge">
+            <span class="badge">Latihan 5</span>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Form Validation</span>
+          </div>
+          <h3 class="card-title">Validasi Form Pendaftaran</h3>
+          <p class="card-desc">Validasi client-side menggunakan JavaScript: mencegah reload dengan <code>preventDefault()</code>, cek nama kosong, regex email, dan rentang usia (17–100 tahun).</p>
+          
+          <!-- Tombol Cepat Skenario Pengujian (Sesuai Syarat Halaman 4: Uji minimal 5 kondisi) -->
+          <div class="scenario-bar">
+            <span class="scenario-title">⚡ Uji 5 Skenario Modul:</span>
+            <button type="button" class="btn-scenario" id="test-empty">1. Semua Kosong</button>
+            <button type="button" class="btn-scenario" id="test-no-name">2. Nama Kosong</button>
+            <button type="button" class="btn-scenario" id="test-bad-email">3. Email Tidak Valid</button>
+            <button type="button" class="btn-scenario" id="test-under-age">4. Usia &lt; 17</button>
+            <button type="button" class="btn-scenario" id="test-valid">5. Semua Valid</button>
+          </div>
+
+          <div class="card-content">
+            <!-- Sesuai struktur kode modul hal 3-4 -->
+            <form id="formPendaftaran" novalidate style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; align-items: end;">
+              <div class="form-group" style="margin-bottom: 0;">
+                <label for="nama">Nama Lengkap</label>
+                <input id="nama" name="nama" type="text" placeholder="Contoh: Margent Ouwen">
+              </div>
+              <div class="form-group" style="margin-bottom: 0;">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="nama@domain.com">
+              </div>
+              <div class="form-group" style="margin-bottom: 0;">
+                <label for="usia">Usia (17 - 100 Tahun)</label>
+                <input id="usia" name="usia" type="number" min="17" max="100" placeholder="17-100">
+              </div>
+              <div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; height: 42px;">
+                  <span>📋</span> Daftar Sekarang
+                </button>
+              </div>
+            </form>
+
+            <div id="pesanFormContainer" style="margin-top: 1rem;">
+              <p id="pesanForm" aria-live="polite" class="feedback-box feedback-info">
+                <span>ℹ️</span> Silakan isi formulir di atas untuk melakukan pengujian validasi.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Latihan 6 & Eksperimen 1 -->
+        <article class="exercise-card" id="card-latihan6" style="grid-column: 1 / -1;">
+          <div class="card-header-badge">
+            <span class="badge badge-green">Latihan 6 + Eksperimen Mandiri 1</span>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Dynamic DOM Creation</span>
+          </div>
+          <h3 class="card-title">Daftar Tugas Sederhana (To-Do List Interaktif)</h3>
+          <p class="card-desc">
+            Menambah elemen dinamis dengan <code>document.createElement()</code>, menandai selesai menggunakan <code>classList.toggle("selesai")</code>, 
+            dan fitur <strong>Eksperimen Mandiri 1</strong>: tombol hapus item dari list.
+          </p>
+
+          <div class="card-content">
+            <!-- Sesuai kode modul hal 4 -->
+            <section>
+              <div style="display: flex; gap: 0.75rem; margin-bottom: 0.75rem; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 260px;">
+                  <label for="inputTugas">Tugas Baru:</label>
+                  <input id="inputTugas" type="text" placeholder="Tuliskan agenda atau tugas baru...">
+                </div>
+                <div style="display: flex; align-items: flex-end;">
+                  <button id="tambahTugas" class="btn btn-primary" type="button" style="height: 42px;">
+                    <span>➕</span> Tambah Tugas
+                  </button>
+                </div>
+              </div>
+
+              <p id="pesanTugas" aria-live="polite" class="feedback-box feedback-info" style="margin-bottom: 1rem;">
+                Daftar tugas siap digunakan.
+              </p>
+
+              <ul id="daftarTugas" class="todo-list-container">
+                <!-- Elemen tugas akan dimasukkan di sini secara dinamis -->
+              </ul>
+            </section>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===============================================================
+         TAB 2: MINI PROJECT - FORM PENDAFTARAN WORKSHOP
+         =============================================================== -->
+    <section id="tab-miniproject" class="tab-pane" role="tabpanel">
+      <div class="section-intro">
+        <h2><span>🎯</span> Mini Project — Form Pendaftaran Workshop</h2>
+        <p>
+          Halaman pendaftaran workshop interaktif lengkap dengan validasi multi-field (nama, email, sesi), 
+          penghitung karakter catatan langsung, tiket ringkasan realtime (live summary card), pesan feedback elegan, 
+          dan tombol reset input.
+        </p>
+      </div>
+
+      <div class="mini-project-layout">
+        <!-- Kolom Kiri: Form Registrasi -->
+        <div class="workshop-form-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+            <div>
+              <h3 style="font-size: 1.35rem; font-weight: 800; color: var(--text-main);">Formulir Registrasi Workshop</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">Web Development & Modern Interactive UI</p>
+            </div>
+            <span class="badge badge-green">Pendaftaran Aktif</span>
+          </div>
+
+          <!-- Alert Container untuk pesan kesalahan / sukses -->
+          <div id="workshopAlertContainer" style="margin-bottom: 1.25rem; display: none;">
+            <div id="workshopAlertBox" class="feedback-box">
+              <span id="workshopAlertIcon"></span>
+              <div id="workshopAlertText"></div>
+            </div>
+          </div>
+
+          <form id="formWorkshop" novalidate>
+            <!-- 1. Nama Lengkap (Validasi min 3 karakter per eksperimen mandiri) -->
+            <div class="form-group">
+              <label for="wsNama">Nama Lengkap Peserta <span style="color: var(--danger)">*</span></label>
+              <input type="text" id="wsNama" name="wsNama" placeholder="Masukkan nama lengkap Anda (minimal 3 huruf)" required>
+              <small id="wsNamaError" style="color: var(--danger); font-size: 0.78rem; display: none;">Nama minimal harus 3 karakter.</small>
+            </div>
+
+            <!-- 2. Email Peserta -->
+            <div class="form-group">
+              <label for="wsEmail">Alamat Email Aktif <span style="color: var(--danger)">*</span></label>
+              <input type="email" id="wsEmail" name="wsEmail" placeholder="nama@institusi.ac.id" required>
+              <small id="wsEmailError" style="color: var(--danger); font-size: 0.78rem; display: none;">Format email tidak valid.</small>
+            </div>
+
+            <!-- 3. Pilihan Sesi Workshop (Event change dinamis) -->
+            <div class="form-group">
+              <label for="wsSesi">Pilihan Sesi Workshop <span style="color: var(--danger)">*</span></label>
+              <select id="wsSesi" name="wsSesi" required>
+                <option value="">-- Pilih Sesi Workshop yang Ingin Diikuti --</option>
+                <option value="sesi-dom" data-desc="Mendalami manipulasi DOM, event delegation, dan dynamic component" data-quota="15 Kursi Tersisa" data-speaker="Dr. Ir. Hendra S., M.Kom">
+                  Sesi 1: JavaScript DOM & Modern Interactive Web UI
+                </option>
+                <option value="sesi-api" data-desc="Integrasi Fetch API, Asynchronous JS, dan Backend RESTful" data-quota="8 Kursi Tersisa" data-speaker="Budi Pratama, S.Kom, M.T">
+                  Sesi 2: RESTful API Integration & Async Programming
+                </option>
+                <option value="sesi-fullstack" data-desc="Membangun arsitektur web modern full-stack dari nol sampai deploy" data-quota="2 Kursi Tersisa" data-speaker="Ahmad Fauzi, Senior Web Architect">
+                  Sesi 3: Fullstack Web App Architecture & Cloud Deployment
+                </option>
+              </select>
+              <!-- Info Box Sesi (Eksperimen 3) -->
+              <div id="wsSesiDetail" style="margin-top: 0.5rem; padding: 0.6rem 0.8rem; background: #f1f5f9; border-radius: 6px; font-size: 0.82rem; display: none;">
+                <strong>Detail Sesi:</strong> <span id="wsSesiDesc">-</span> | <strong>Pemateri:</strong> <span id="wsSesiSpeaker">-</span> | <strong>Sisa Kuota:</strong> <span id="wsSesiQuota" style="color: var(--primary); font-weight: 700;">-</span>
+              </div>
+            </div>
+
+            <!-- 4. Kategori Peserta -->
+            <div class="form-group">
+              <label for="wsKategori">Kategori Peserta</label>
+              <select id="wsKategori" name="wsKategori">
+                <option value="Mahasiswa">Mahasiswa (Diskon 50%)</option>
+                <option value="Umum / Praktisi">Umum / Profesional</option>
+                <option value="Dosen / Peneliti">Dosen / Akademisi</option>
+              </select>
+            </div>
+
+            <!-- 5. Catatan / Harapan dengan Real-time Char Counter -->
+            <div class="form-group">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+                <label for="wsCatatan" style="margin-bottom: 0;">Harapan & Motivasi Mengikuti Workshop:</label>
+                <span style="font-size: 0.78rem; color: var(--text-muted);">
+                  <span id="wsCharCount">0</span> / 150 Karakter
+                </span>
+              </div>
+              <textarea id="wsCatatan" maxlength="150" placeholder="Tuliskan materi yang paling ingin Anda pelajari..."></textarea>
+            </div>
+
+            <!-- Tombol Submit & Reset -->
+            <div style="display: flex; gap: 0.75rem; margin-top: 1.5rem;">
+              <button type="submit" id="btnSubmitWorkshop" class="btn btn-primary" style="flex: 1;">
+                <span>🚀</span> Konfirmasi Pendaftaran
+              </button>
+              <button type="button" id="btnResetWorkshop" class="btn btn-secondary">
+                <span>🔄</span> Reset Input
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Kolom Kanan: Live Preview Tiket (Ringkasan Langsung) -->
+        <div class="ticket-preview-wrapper">
+          <div class="ticket-card">
+            <div class="ticket-header">
+              <div>
+                <div class="ticket-title">TIKET ELEKTRONIK</div>
+                <div style="font-size: 0.75rem; color: #a5b4fc;">Workshop Pemrograman Web 2026</div>
+              </div>
+              <div class="ticket-badge" id="ticketBadgeStatus">DRAFT</div>
+            </div>
+
+            <div class="ticket-body">
+              <div class="ticket-field">
+                <span class="ticket-label">Nama Peserta</span>
+                <span class="ticket-val" id="previewNama">Margent Ouwen Sitompul</span>
+              </div>
+
+              <div class="ticket-field">
+                <span class="ticket-label">Alamat Email</span>
+                <span class="ticket-val" id="previewEmail">margent.ouwen@student.ac.id</span>
+              </div>
+
+              <div class="ticket-field">
+                <span class="ticket-label">Sesi Yang Dipilih</span>
+                <span class="ticket-val" id="previewSesi" style="font-size: 0.95rem; color: #fef08a;">
+                  Belum memilih sesi workshop
+                </span>
+              </div>
+
+              <div class="ticket-field">
+                <span class="ticket-label">Kategori Peserta</span>
+                <span class="ticket-val" id="previewKategori" style="font-size: 0.95rem;">Mahasiswa</span>
+              </div>
+
+              <div class="ticket-field">
+                <span class="ticket-label">Catatan Peserta</span>
+                <span class="ticket-val" id="previewCatatan" style="font-size: 0.85rem; font-style: italic; color: #cbd5e1;">
+                  (Belum ada catatan)
+                </span>
+              </div>
+            </div>
+
+            <div class="ticket-footer">
+              <div class="live-indicator">
+                <span class="live-dot"></span>
+                <span>Live Real-time Sync</span>
+              </div>
+              <div id="ticketTimestamp">ID: WS-312510463</div>
+            </div>
+          </div>
+
+          <div style="margin-top: 1rem; background: #ffffff; border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem; font-size: 0.85rem; color: var(--text-muted);">
+            📌 <strong>Fitur Interaktif Terpenuhi:</strong>
+            <ul style="padding-left: 1.25rem; margin-top: 0.4rem; line-height: 1.5;">
+              <li>Validasi nama (min 3 huruf), email valid, & sesi wajib dipilih.</li>
+              <li>Live sync / ringkasan instan ke kartu tiket saat user mengetik atau memilih opsi.</li>
+              <li>Realtime counter karakter harapan peserta (0 - 150).</li>
+              <li>Pesan status alert kesalahan dan konfirmasi sukses interaktif.</li>
+              <li>Tombol reset yang mengembalikan form dan tiket ke kondisi awal.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===============================================================
+         TAB 3: EKSPERIMEN MANDIRI
+         =============================================================== -->
+    <section id="tab-eksperimen" class="tab-pane" role="tabpanel">
+      <div class="section-intro">
+        <h2><span>🧪</span> Eksperimen Mandiri (Bagian G Modul)</h2>
+        <p>
+          Pengujian 5 poin eksperimen mandiri yang diinstruksikan pada modul untuk memperluas pemahaman 
+          mekanisme event, validasi, modulasi class, dan siklus parsing browser.
+        </p>
+      </div>
+
+      <div class="grid-cards">
+        <!-- Eksperimen 1 -->
+        <article class="exercise-card">
+          <div class="card-header-badge">
+            <span class="badge">Eksperimen 1</span>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">DOM Deletion</span>
+          </div>
+          <h3 class="card-title">1. Tombol Hapus Item To-do List</h3>
+          <p class="card-desc">Menghapus node elemen <code>&lt;li&gt;</code> secara langsung dari pohon DOM saat tombol hapus ditekan.</p>
+          <div class="card-content">
+            <p style="font-size: 0.9rem; margin-bottom: 0.75rem;">
+              Fitur ini telah diintegrasikan langsung pada To-do list di Tab Latihan 1–6 dengan menggunakan sintaks:
+            </p>
+            <div class="code-snippet">
+tombolHapus.addEventListener("click", function () {
+  item.remove(); // atau daftarTugas.removeChild(item);
+  pesanTugas.textContent = "Tugas berhasil dihapus.";
+});</div>
+            <p style="font-size: 0.85rem; color: var(--success); font-weight: 600;">
+              ✅ Berhasil diimplementasikan dengan method <code>item.remove()</code> yang aman dan modern.
+            </p>
+          </div>
+        </article>
+
+        <!-- Eksperimen 2 -->
+        <article class="exercise-card">
+          <div class="card-header-badge">
+            <span class="badge">Eksperimen 2</span>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">String Length Check</span>
+          </div>
+          <h3 class="card-title">2. Validasi Nama Minimal Tiga Karakter</h3>
+          <p class="card-desc">Memastikan input nama memiliki panjang minimal 3 karakter untuk mencegah input inisial atau tidak lengkap.</p>
+          <div class="card-content">
+            <div class="form-group">
+              <label for="demoExpNama">Uji Input Nama Eksperimen 2:</label>
+              <input type="text" id="demoExpNama" placeholder="Ketik 1-2 huruf, lalu 3+ huruf...">
+            </div>
+            <p id="demoExpNamaPesan" class="feedback-box feedback-info" style="font-size: 0.85rem;">
+              Ketik nama minimal 3 karakter...
+            </p>
+            <div class="code-snippet">
+if (nama.length < 3) {
+  pesanForm.textContent = "Nama minimal terdiri dari 3 karakter.";
+}</div>
+          </div>
+        </article>
+
+        <!-- Eksperimen 3 -->
+        <article class="exercise-card">
+          <div class="card-header-badge">
+            <span class="badge">Eksperimen 3</span>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Event Change</span>
+          </div>
+          <h3 class="card-title">3. Event Change Dropdown Sesi Workshop</h3>
+          <p class="card-desc">Mendeteksi pergantian nilai pada dropdown <code>&lt;select&gt;</code> dan segera merespons dengan menampilkan informasi detail sesi.</p>
+          <div class="card-content">
+            <div class="form-group">
+              <label for="demoExpSesi">Pilih Sesi Uji:</label>
+              <select id="demoExpSesi">
+                <option value="">-- Silakan Pilih Sesi --</option>
+                <option value="Frontend Engineering">Frontend Web Engineering (HTML5, CSS3, DOM)</option>
+                <option value="Backend Services">Backend REST API & Database Integration</option>
+                <option value="Cyber Security Web">Web Application Security & OWASP Top 10</option>
+              </select>
+            </div>
+            <div id="demoExpSesiResult" class="feedback-box feedback-info" style="font-size: 0.85rem;">
+              Belum ada sesi yang dipilih.
+            </div>
+            <div class="code-snippet">
+dropdown.addEventListener("change", function () {
+  hasil.textContent = "Sesi aktif: " + this.value;
+});</div>
+          </div>
+        </article>
+
+        <!-- Eksperimen 4 -->
+        <article class="exercise-card">
+          <div class="card-header-badge">
+            <span class="badge">Eksperimen 4</span>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">CSS Display Toggle</span>
+          </div>
+          <h3 class="card-title">4. Sembunyikan & Tampilkan Paragraf via CSS</h3>
+          <p class="card-desc">Mengendalikan visibilitas elemen dengan menambahkan atau mencopot kelas CSS <code>.hidden-element</code>.</p>
+          <div class="card-content">
+            <button id="btnToggleVisibilitas" class="btn btn-secondary" style="margin-bottom: 0.75rem;" type="button">
+              <span>👁️</span> Sembunyikan Paragraf
+            </button>
+            <p id="paragrafRahasia" style="background: #eef2ff; border-left: 4px solid var(--primary); padding: 0.75rem; border-radius: 4px; font-size: 0.9rem;">
+              🎉 <strong>Teks Rahasia:</strong> Paragraf ini dapat dimunculkan dan disembunyikan menggunakan manipulasi kelas <code>classList.toggle("hidden-element")</code>.
+            </p>
+            <div class="code-snippet">
+.hidden-element { display: none !important; }
+tombol.addEventListener("click", () => {
+  paragraf.classList.toggle("hidden-element");
+});</div>
+          </div>
+        </article>
+
+        <!-- Eksperimen 5 -->
+        <article class="exercise-card" style="grid-column: 1 / -1;">
+          <div class="card-header-badge">
+            <span class="badge badge-amber">Eksperimen 5</span>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Script Parsing & Defer</span>
+          </div>
+          <h3 class="card-title">5. Analisis Script di Head Tanpa Atribut Defer</h3>
+          <p class="card-desc">Mengamati dan menjelaskan apa yang terjadi jika script JavaScript dieksekusi di <code>&lt;head&gt;</code> sebelum elemen HTML selesai di-parse.</p>
+          <div class="card-content">
+            <div style="background: #fffbeb; border: 1px solid #fde68a; padding: 1rem; border-radius: var(--radius-sm); margin-bottom: 1rem;">
+              <h4 style="color: #92400e; font-size: 0.95rem; margin-bottom: 0.4rem;">⚠️ Fenomena & Penjelasan Teknis:</h4>
+              <p style="font-size: 0.9rem; color: #78350f; line-height: 1.6;">
+                Jika tag <code>&lt;script src="script.js"&gt;&lt;/script&gt;</code> ditaruh di dalam tag <code>&lt;head&gt;</code> <strong>tanpa atribut <code>defer</code> atau <code>async</code></strong>:
+              </p>
+              <ul style="padding-left: 1.25rem; font-size: 0.88rem; color: #78350f; margin-top: 0.4rem;">
+                <li>Browser langsung mengunduh dan mengeksekusi script seketika itu juga (parser-blocking).</li>
+                <li>Pada saat itu, elemen <code>&lt;body&gt;</code> dan elemen dengan ID seperti <code>#judul</code>, <code>#tombolAksi</code> <strong>belum selesai dibaca (diparsing) oleh browser</strong>.</li>
+                <li>Akibatnya, fungsi pemanggilan seperti <code>document.getElementById("judul")</code> akan menghasilkan nilai <code>null</code>.</li>
+                <li>Ketika program mencoba mengakses atribut elemen seperti <code>judul.textContent = ...</code>, browser akan melempar pesan kesalahan runtime: <code>Uncaught TypeError: Cannot set properties of null (setting 'textContent')</code>.</li>
+              </ul>
+            </div>
+
+            <div style="background: #ecfdf5; border: 1px solid #a7f3d0; padding: 1rem; border-radius: var(--radius-sm);">
+              <h4 style="color: #065f46; font-size: 0.95rem; margin-bottom: 0.4rem;">💡 Solusi Standar Modern:</h4>
+              <p style="font-size: 0.88rem; color: #064e3b; line-height: 1.5;">
+                1. Gunakan atribut <strong><code>defer</code></strong> pada tag script di bagian head (seperti yang digunakan pada praktikum ini: <code>&lt;script src="script.js" defer&gt;&lt;/script&gt;</code>). Browser mengunduh file secara asynchronous dan hanya mengeksekusinya setelah seluruh dokumen HTML selesai diparsing.<br>
+                2. Atau letakkan tag script tepat sebelum penutup <code>&lt;/body&gt;</code>.<br>
+                3. Atau bungkus kode JS dengan event listener <code>document.addEventListener("DOMContentLoaded", () => { ... })</code>.
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===============================================================
+         TAB 4: PERTANYAAN EVALUASI
+         =============================================================== -->
+    <section id="tab-evaluasi" class="tab-pane" role="tabpanel">
+      <div class="section-intro">
+        <h2><span>📖</span> Jawaban Pertanyaan Evaluasi (Bagian H Modul)</h2>
+        <p>
+          Jawaban lengkap dan terstruktur atas 7 pertanyaan evaluasi pada Modul Praktikum 6: DOM & Event Handling.
+        </p>
+      </div>
+
+      <!-- Soal 1 -->
+      <article class="eval-card">
+        <div class="eval-q">
+          <span>1.</span>
+          <span>Apa yang dimaksud dengan DOM dan apa manfaatnya?</span>
+        </div>
+        <div class="eval-ans">
+          <p>
+            <strong>Document Object Model (DOM)</strong> adalah antarmuka pemrograman (API) standar yang merepresentasikan struktur dokumen HTML atau XML sebagai pohon objek (<em>object-oriented tree hierarchy</em>). Setiap tag HTML, teks, dan atribut dalam halaman web direpresentasikan sebagai sebuah node objek yang memiliki properti dan metode bawaan.
+          </p>
+          <p style="margin-top: 0.5rem;">
+            <strong>Manfaat Utama DOM:</strong>
+          </p>
+          <ul style="padding-left: 1.25rem; margin-top: 0.25rem;">
+            <li><strong>Manipulasi Dinamis:</strong> Memungkinkan JavaScript mengubah teks, elemen HTML, dan atribut kapan saja tanpa perlu me-reload seluruh halaman.</li>
+            <li><strong>Interaktivitas Tinggi:</strong> Memungkinkan developer merespons aksi pengguna (klik, input, hover, scroll) secara langsung melalui event handling.</li>
+            <li><strong>Manipulasi Gaya/CSS:</strong> Mengubah style visual, animasi, dan kelas CSS secara fleksibel secara real-time.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Soal 2 -->
+      <article class="eval-card">
+        <div class="eval-q">
+          <span>2.</span>
+          <span>Apa perbedaan getElementById(), querySelector(), dan querySelectorAll()?</span>
+        </div>
+        <div class="eval-ans">
+          <table style="width: 100%; border-collapse: collapse; margin-top: 0.5rem; font-size: 0.88rem;">
+            <thead>
+              <tr style="background: #f1f5f9; text-align: left;">
+                <th style="padding: 8px; border: 1px solid var(--border-color);">Metode</th>
+                <th style="padding: 8px; border: 1px solid var(--border-color);">Jenis Selector</th>
+                <th style="padding: 8px; border: 1px solid var(--border-color);">Hasil Pengembalian</th>
+                <th style="padding: 8px; border: 1px solid var(--border-color);">Kecepatan & Karakteristik</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding: 8px; border: 1px solid var(--border-color);"><code>getElementById(id)</code></td>
+                <td style="padding: 8px; border: 1px solid var(--border-color);">Hanya nama ID (tanpa simbol #)</td>
+                <td style="padding: 8px; border: 1px solid var(--border-color);">1 elemen tunggal spesifik (atau <code>null</code>)</td>
+                <td style="padding: 8px; border: 1px solid var(--border-color);">Paling cepat (dioptimasi khusus oleh browser)</td>
+              </tr>
+              <tr>
+                <td style="padding: 8px; border: 1px solid var(--border-color);"><code>querySelector(selector)</code></td>
+                <td style="padding: 8px; border: 1px solid var(--border-color);">Selector CSS bebas (<code>#id</code>, <code>.class</code>, tag, atribut)</td>
+                <td style="padding: 8px; border: 1px solid var(--border-color);">1 elemen pertama yang cocok</td>
+                <td style="padding: 8px; border: 1px solid var(--border-color);">Sangat fleksibel untuk seleksi spesifik</td>
+              </tr>
+              <tr>
+                <td style="padding: 8px; border: 1px solid var(--border-color);"><code>querySelectorAll(selector)</code></td>
+                <td style="padding: 8px; border: 1px solid var(--border-color);">Selector CSS bebas</td>
+                <td style="padding: 8px; border: 1px solid var(--border-color);">Koleksi <code>NodeList</code> statis dari semua elemen yang cocok</td>
+                <td style="padding: 8px; border: 1px solid var(--border-color);">Mendukung perulangan seperti <code>.forEach()</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <!-- Soal 3 -->
+      <article class="eval-card">
+        <div class="eval-q">
+          <span>3.</span>
+          <span>Apa fungsi addEventListener() dan sebutkan tiga contoh event?</span>
+        </div>
+        <div class="eval-ans">
+          <p>
+            <strong>Fungsi <code>addEventListener()</code></strong> adalah metode resmi pada objek DOM EventTarget untuk mendaftarkan fungsi penanganan (<em>event handler / listener callback</em>) pada suatu elemen HTML yang akan dieksekusi ketika suatu jenis kejadian (event) tertentu terjadi pada elemen tersebut.
+          </p>
+          <p style="margin-top: 0.5rem;">
+            Keunggulannya dibanding inline handler (seperti <code>onclick</code>) adalah dapat memasang beberapa listener sekaligus pada event dan elemen yang sama tanpa saling menimpa.
+          </p>
+          <p style="margin-top: 0.5rem;">
+            <strong>Tiga Contoh Event:</strong>
+          </p>
+          <ul style="padding-left: 1.25rem; margin-top: 0.25rem;">
+            <li><code>click</code>: Terjadi saat pengguna menekan tombol mouse atau menyentuh tombol/elemen di layar (misal tombol kirim atau toggle).</li>
+            <li><code>input</code>: Terjadi secara langsung setiap kali nilai pada <code>&lt;input&gt;</code> atau <code>&lt;textarea&gt;</code> berubah (sangat ideal untuk live character counter).</li>
+            <li><code>submit</code>: Terjadi saat pengguna mengirimkan form (misal menekan tombol submit atau tombol Enter dalam form).</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Soal 4 -->
+      <article class="eval-card">
+        <div class="eval-q">
+          <span>4.</span>
+          <span>Mengapa event.preventDefault() digunakan pada event submit form?</span>
+        </div>
+        <div class="eval-ans">
+          <p>
+            Secara bawaan (<em>default behavior</em>), ketika event <code>submit</code> terjadi pada elemen form, browser web akan langsung mengarahkan halaman ke URL tujuan (atribut <code>action</code>) dan melakukan refresh atau navigasi ulang seluruh halaman (<em>page reload</em>).
+          </p>
+          <p style="margin-top: 0.5rem;">
+            <strong>Tujuan Pemanggilan <code>event.preventDefault()</code>:</strong>
+          </p>
+          <ul style="padding-left: 1.25rem; margin-top: 0.25rem;">
+            <li>Menghentikan aksi refresh otomatis browser sehingga proses eksekusi tetap berada pada halaman aktif.</li>
+            <li>Memberikan kesempatan bagi JavaScript untuk memeriksa kelengkapan data (validasi client-side) terlebih dahulu sebelum data benar-benar dikirimkan.</li>
+            <li>Mencegah hilangnya status DOM, teks input, atau pesan error yang sedang ditampilkan ke pengguna.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Soal 5 -->
+      <article class="eval-card">
+        <div class="eval-q">
+          <span>5.</span>
+          <span>Apa perbedaan textContent dan innerHTML dari sisi penggunaan dan keamanan?</span>
+        </div>
+        <div class="eval-ans">
+          <table style="width: 100%; border-collapse: collapse; margin-top: 0.5rem; font-size: 0.88rem;">
+            <thead>
+              <tr style="background: #f1f5f9; text-align: left;">
+                <th style="padding: 8px; border: 1px solid var(--border-color);">Aspek</th>
+                <th style="padding: 8px; border: 1px solid var(--border-color);"><code>textContent</code></th>
+                <th style="padding: 8px; border: 1px solid var(--border-color);"><code>innerHTML</code></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding: 8px; border: 1px solid var(--border-color);"><strong>Penggunaan</strong></td>
+                <td style="padding: 8px; border: 1px solid var(--border-color);">Menetapkan atau mengambil konten sebagai teks mentah (plain text) murni. Semua karakter tag (seperti <code>&lt;b&gt;</code>) akan ditampilkan sebagai teks literal.</td>
+                <td style="padding: 8px; border: 1px solid var(--border-color);">Menetapkan atau mengambil konten dalam bentuk markup HTML. String yang dimasukkan akan diparsing oleh browser menjadi elemen HTML nyata.</td>
+              </tr>
+              <tr>
+                <td style="padding: 8px; border: 1px solid var(--border-color);"><strong>Keamanan (Security)</strong></td>
+                <td style="padding: 8px; border: 1px solid var(--border-color);"><strong>Sangat Aman.</strong> Bebas dari serangan Cross-Site Scripting (XSS) karena browser tidak pernah mengeksekusi markup dari string input pengguna.</td>
+                <td style="padding: 8px; border: 1px solid var(--border-color);"><strong>Rentan XSS.</strong> Jika teks input dari user langsung dimasukkan ke <code>innerHTML</code> tanpa sanitasi, penyerang bisa menyisipkan tag <code>&lt;img src="x" onerror="alert(1)"&gt;</code> yang berbahaya.</td>
+              </tr>
+              <tr>
+                <td style="padding: 8px; border: 1px solid var(--border-color);"><strong>Kinerja</strong></td>
+                <td style="padding: 8px; border: 1px solid var(--border-color);">Lebih cepat karena tidak memicu HTML parser browser.</td>
+                <td style="padding: 8px; border: 1px solid var(--border-color);">Lebih lambat karena browser harus mem-parse string HTML menjadi node DOM baru.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <!-- Soal 6 -->
+      <article class="eval-card">
+        <div class="eval-q">
+          <span>6.</span>
+          <span>Bagaimana classList.toggle() membantu mengubah tampilan elemen?</span>
+        </div>
+        <div class="eval-ans">
+          <p>
+            Metode <code>classList.toggle("namaKelas")</code> bekerja seperti sakelar otomatis cerdas:
+          </p>
+          <ul style="padding-left: 1.25rem; margin-top: 0.25rem;">
+            <li>Jika kelas CSS tersebut <strong>belum ada</strong> pada elemen, maka fungsi akan <strong>menambahkannya</strong> (seperti <code>classList.add()</code>).</li>
+            <li>Jika kelas CSS tersebut <strong>sudah ada</strong> pada elemen, maka fungsi akan <strong>menghapusnya</strong> (seperti <code>classList.remove()</code>).</li>
+          </ul>
+          <p style="margin-top: 0.5rem;">
+            <strong>Manfaat:</strong> Menghilangkan kebutuhan untuk menuliskan logika kondisional manual <code>if (element.classList.contains(...)) { remove() } else { add() }</code>. Sangat efisien untuk membuat tombol highlight, tema gelap/terang (dark mode), accordion, dropdown menu, dan status item to-do list ("selesai" / "belum selesai").
+          </p>
+        </div>
+      </article>
+
+      <!-- Soal 7 -->
+      <article class="eval-card">
+        <div class="eval-q">
+          <span>7.</span>
+          <span>Sebutkan minimal tiga skenario pengujian validasi form!</span>
+        </div>
+        <div class="eval-ans">
+          <p>Berikut adalah 5 skenario pengujian komprehensif yang telah diuji dan divalidasi pada praktikum ini:</p>
+          <ol style="padding-left: 1.25rem; margin-top: 0.25rem; line-height: 1.6;">
+            <li><strong>Skenario Semua Kolom Kosong:</strong> Pengguna langsung menekan tombol submit tanpa mengisi apapun. Sistem mendeteksi field nama kosong dan memunculkan pesan error <em>"Nama wajib diisi."</em>.</li>
+            <li><strong>Skenario Format Email Tidak Valid:</strong> Pengguna mengisi nama dengan benar ("Margent"), namun mengisi email tanpa simbol '@' atau tanpa domain (misal: "margentouwen"). Sistem regex mendeteksi pola yang salah dan menampilkan pesan <em>"Masukkan email yang valid."</em>.</li>
+            <li><strong>Skenario Usia di Bawah Batas Minimum:</strong> Pengguna mengisi usia 15 tahun (kurang dari syarat 17 tahun). Sistem validasi memunculkan pesan <em>"Usia harus berupa bilangan bulat 17–100."</em>.</li>
+            <li><strong>Skenario Usia Bukan Bilangan Bulat / Di Luar Rentang:</strong> Pengguna memasukkan nilai desimal (25.5) atau lebih dari 100 tahun (120). Sistem menolak dan meminta angka valid.</li>
+            <li><strong>Skenario Seluruh Input Valid:</strong> Pengguna memasukkan Nama: "Margent Ouwen Sitompul", Email: "margent@gmail.com", Usia: 20 tahun. Sistem menampilkan pesan sukses <em>"Validasi berhasil. Form siap diproses."</em> serta mengosongkan form menggunakan <code>form.reset()</code>.</li>
+          </ol>
+        </div>
+      </article>
+    </section>
+
+  </main>
+
+  <!-- ===================================================================
+       FOOTER
+       =================================================================== -->
+  <footer class="app-footer">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+      <div>
+        <strong>Praktikum 6: JavaScript DOM & Event Handling</strong> • Modul Pemrograman Web
+      </div>
+      <div>
+        Mahasiswa: <strong>Margent Ouwen Sitompul</strong> (NIM: <strong>312510463</strong>)
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
